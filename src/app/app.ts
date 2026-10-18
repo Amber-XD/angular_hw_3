@@ -1,12 +1,32 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { WordList } from './word-list/word-list';
+import { MessageBox } from './message-box/message-box';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  imports: [NgClass, WordList, MessageBox],
   templateUrl: './app.html',
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('angular_hw_3');
+  selected = 'B';
+
+  fontSize = 20;
+
+  orders = [
+    { id: 1, name: 'Ноутбук', status: 'Виконано' },
+    { id: 2, name: 'Навушники', status: 'В обробці' },
+    { id: 3, name: 'Мишка', status: 'Скасовано' },
+  ];
+
+  words = ['Green Day', 'Dookie', 'Linkin Park', 'Meteora'];
+
+  message = '';
+  buttonColor = 'blue';
+
+  receiveData(data: { text: string; color: string }) {
+    this.message = data.text;
+    this.buttonColor = data.color;
+  }
 }

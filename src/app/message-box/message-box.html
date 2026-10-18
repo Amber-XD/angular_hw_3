@@ -1,0 +1,21 @@
+<h3>Дочірній компонент</h3>
+
+<input
+  type="text"
+  [(ngModel)]="message"
+  placeholder="Введи повідомлення"
+>
+
+<br><br>
+
+<label>Колір кнопки:</label>
+
+<select [(ngModel)]="color">
+  <option value="blue">Синій</option>
+  <option value="green">Зелений</option>
+  <option value="red">Червоний</option>
+</select>
+
+<br><br>
+
+<button (click)="send()">Передати дані</button>
